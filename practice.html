@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #imageDiv{
+            border: 2px solid red;
+            width: 50%;  
+        }
+    </style>
+</head>
+<body>
+    <button onclick="displayStates()">Displaystates</button>
+    <ul id="dataList"></ul>
+    <div id="imageDiv"></div>
+
+    <script>
+     var states=[
+         {
+             name:"Andhra Pradesh",
+             capital:"Amaravathi",
+             commonLanguage:"telugu",
+             flogColor:"3 colors",
+             image:"rose.jpg"
+         },
+         {
+             name:"karnataka",
+             capital:"bangalore",
+             commonLanguage:"kanada",
+             flogColor:"3colors",
+             image:"rose.jpg"
+         }
+     ]
+
+    //  function displayStates(){
+    //      for(let i=0;i<states.length;i++){
+    //          var myli = document.createElement("li")
+    //         myli.innerHTML = states[i].name;
+    //         myli.setAttribute("onclick","displaySelectedStates("+i+")")
+    //         document.getElementById("dataList").appendChild(myli)
+    //      }
+    //  }
+    //  displayStates() 
+     
+    //  function displaySelectedStates(i){
+    //   var stateResult="" 
+    //   for(a in states[i]){
+    //       if(a !== "image"){
+    //          stateResult = stateResult+ a+ " : " +states[i][a]+"<br>"
+    //       }else{
+    //           var pic = document.createElement("img")
+    //             pic.setAttribute("src",states[i][a]);
+    //           document.getElementById("imageDiv").appendChild(pic)
+    //       }
+    //     }
+    //     document.getElementById("dataList").innerHTML=stateResult;
+    //  }
+
+
+    function displayStates(){
+        for(let i=0;i<states.length;i++){
+            var myLi = document.createElement("li")
+            myLi.innerHTML=states[i].name
+            myLi.setAttribute("onclick","displayStatevalues("+i+")")
+            document.getElementById("dataList").appendChild(myLi)
+            document.getElementById("dataList").style.color="green";
+        }
+    }
+    
+    function displayStatevalues(i){
+        var stateResult=" ";
+       for(a in states[i]){
+           if(a !== "image"){
+            stateResult = stateResult+a+" : "+ states[i][a]+"<br>"
+           }else{
+               var pic = document.createElement("img")
+               //var headt = document.createElement("h1")
+               //headt.innerHTML="This is pinkcolor teddybear"
+               pic.setAttribute("src",states[i][a])
+              // headt.style.color="red";
+              // document.getElementById("imageDiv").appendChild(headt)
+               document.getElementById("imageDiv").appendChild(pic)
+           }
+       }
+       document.getElementById("dataList").innerHTML=stateResult;
+    }
+   
+ </script>
+</body>
+</html>
